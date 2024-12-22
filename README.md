@@ -1,8 +1,8 @@
 # **Task Manager**  
 Effortlessly manage your tasks with this sleek and intuitive web application. Built with modern web technologies, Task Manager helps you stay organized and productive.  
 
-## **Demo**  
-👉 [Live Demo](#)  
+## **Demo (Live Preview)**  
+👉 <a href="https://ahmed-maher77.github.io/Task-Manager__ToDo-App/" title="see the website Live">https://ahmed-maher77.github.io/Task-Manager__ToDo-App/</a>  
 
 ---
 
