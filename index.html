@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Task Manager where you can create, edit and delete a task">
+        <meta name="keywords" content="Task Manager, Web app, website, HTML, HTML5, CSS, CSS3, 
+        JavaScript, Responsive Design, HTML, CSS and JavaScript Template, Awesome Layout">
+        <meta name="author" content="Ahmed Maher">
+        <meta name="copyright" content="2024, Ahmed Maher">
+        <meta name="robots" content="index, follow">
+        <!-- Media Queries -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To-Do App / Task Manager</title>
+        <!-- Page Logo -->
+        <link rel="icon" type="image/icon" href="images.jpg">
+        <!-- Font Awesome Library -->
+        <link rel="stylesheet" href="CSS/all.min.css">
+        <!-- Main CSS File -->
+        <link rel="stylesheet" href="CSS/style.css">
+    </head>
+    <body>
+        <section id="main">
+            <h1>Task Manager</h1>
+            <div class="container">
+                <form class="head">
+                    <input type="text" placeholder="enter your task...">
+                    <button id="addBtn">Add Task</button>
+                </form>
+                <div class="content">
+                    <h2>My Tasks:</h2>
+                    <div class="current-tasks">
+                        <!-- the current tasks will be added dynamically using JS -->
+                    </div>
+                    <div class="completed-tasks">
+                        <!-- the completed tasks will be added dynamically using JS -->
+                    </div>
+                    <button class="removeAll"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="container">
+                <p>
+                    Copyright &copy; <span id="copyright-year"></span>
+                    Developed By <a href="https://www.linkedin.com/in/ahmed-maher-algohary" title="About Developer" target="_blank">Ahmed Maher</a>
+                </p>
+                <span>All Rights Reserved</span>
+            </div>
+        </footer>
+    <script src="main.js"></script>
+    </body>
+</html>
