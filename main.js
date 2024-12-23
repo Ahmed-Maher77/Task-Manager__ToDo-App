@@ -17,6 +17,7 @@ displayTasks(tasks);
 
 // Add Task or Edit Task button click:
 addBtn.onclick = function(e) {
+    e.preventDefault();
     if (input.value.trim().length > 0) { // Validate the input
         // Add Task
         if (addBtn.innerText === 'Add Task') {
