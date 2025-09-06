@@ -47,7 +47,7 @@ A modern and intuitive task management web application designed to help you stay
 
 ---
 
-### 🎥 **Demo Video:**
+## 🎥 **Demo Video:**
 
 **📹 Watch Video on LinkedIn:** <a href="" target="_blank">Coming soon on LinkedIn.</a> 
 
@@ -60,7 +60,7 @@ A modern and intuitive task management web application designed to help you stay
 
 ---
 
-### 🛠️ Future Enhancements:
+## 🛠️ Future Enhancements:
 - 🔍 Search and filter functionality.
 - 📅 Task categorization and due dates.
 - 🌙 Dark mode support.
