@@ -10,13 +10,45 @@ const completedTasks = document.querySelector(".completed-tasks");
 const loader = document.getElementById("loader");
 
 // ============================== State Management ==============================
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [
+const dummyTasks = [
 	{
 		id: 1722631507498,
 		content: "The default task was set by the programmer {Ahmed Maher}.",
 		completed: false,
 	},
+	{
+		id: 1732631507498,
+		content: "Contact Me: https://ahmedmaher-portfolio.vercel.app/",
+		completed: false,
+	},
+	{
+		id: 1732631507598,
+		content: "Ahmed Maher => I am always here to help you",
+		completed: true,
+	},
+	{
+		id: 1732635107598,
+		content: "Going to the GYM",
+		completed: false,
+	},
+	{
+		id: 1732615107598,
+		content: "Watching a Podcast",
+		completed: true,
+	},
+	{
+		id: 1732315107598,
+		content: "Practicing English",
+		completed: true,
+	},
+	
+	{
+		id: 1732612107598,
+		content: "Hanging out with my friend",
+		completed: true,
+	}
 ];
+let tasks = JSON.parse(localStorage.getItem("tasks")) || dummyTasks;
 let modifiedId; // ID for the task being edited
 let searchQuery = ""; // Current search query
 
