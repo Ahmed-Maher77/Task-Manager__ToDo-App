@@ -1,55 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="description" content="Task Manager where you can create, edit and delete a task">
-        <meta name="keywords" content="Task Manager, Web app, website, HTML, HTML5, CSS, CSS3, 
-        JavaScript, Responsive Design, HTML, CSS and JavaScript Template, Awesome Layout">
-        <meta name="author" content="Dunder Mifflin Team">
-        <meta name="copyright" content="Dunder Mifflin Team 2024">
-        <meta name="robots" content="index, follow">
-        <!-- Media Queries -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>To-Do App / Task Manager</title>
-        <!-- Page Logo -->
-        <link rel="icon" type="image/icon" href="images.jpg">
-        <!-- Font Awesome Library -->
-        <link rel="stylesheet" href="CSS/all.min.css">
-        <!-- Main CSS File -->
-        <link rel="stylesheet" href="CSS/style.css">
-    </head>
-    <body>
-        <section id="main">
-            <h1>Task Manager</h1>
-            <div class="container">
-                <form class="head">
-                    <input type="text" placeholder="enter your task...">
-                    <button id="addBtn">Add Task</button>
-                </form>
-                <div class="content">
-                    <h2>My Tasks:</h2>
-                    <div class="current-tasks">
-                        <!-- the current tasks will be added dynamically using JS -->
-                    </div>
-                    <div class="completed-tasks">
-                        <!-- the completed tasks will be added dynamically using JS -->
-                    </div>
-                    <button class="removeAll"></button>
-                </div>
-            </div>
-        </section>
+	<head>
+		<!-- ============================== Basic Meta Tags ============================== -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <!-- Footer -->
-        <footer id="footer">
-            <div class="container">
-                <p>
-                    Copyright &copy; <span id="copyright-year"></span>
-                    <!-- Developed By <a href="https://www.linkedin.com/in/ahmed-maher-algohary" title="About Developer" target="_blank">Ahmed Maher</a> -->
-                    Developed By <a href="https://www.linkedin.com/in/ahmed-maher-algohary" title="About Developer" target="_blank">Dunder Mifflin Team</a>
-                </p>
-                <span>All Rights Reserved</span>
-            </div>
-        </footer>
-    <script src="main.js"></script>
-    </body>
+		<!-- ============================== SEO Meta Tags ============================== -->
+		<title>Task Manager Pro - Modern To-Do App | Organize Your Life</title>
+		<meta
+			name="description"
+			content="Professional task management app with modern UI, smooth animations, and local storage. Create, edit, complete, and organize your daily tasks efficiently. Free, fast, and responsive."
+		/>
+		<meta
+			name="keywords"
+			content="task manager, to-do app, productivity, task organizer, daily planner, project management, task tracking, productivity tools, modern web app, responsive design, local storage, JavaScript app"
+		/>
+		<meta name="author" content="Ahmed Maher" />
+		<meta
+			name="copyright"
+			content="© 2024 Ahmed Maher. All rights reserved."
+		/>
+		<meta
+			name="robots"
+			content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+		/>
+		<meta name="googlebot" content="index, follow" />
+		<meta name="bingbot" content="index, follow" />
+
+		<!-- ============================== Open Graph Meta Tags ============================== -->
+		<meta property="og:type" content="website" />
+		<meta
+			property="og:title"
+			content="Task Manager Pro - Modern To-Do App"
+		/>
+		<meta
+			property="og:description"
+			content="Professional task management app with modern UI, smooth animations, and local storage. Organize your daily tasks efficiently."
+		/>
+		<meta
+			property="og:url"
+			content="https://ahmed-maher77.github.io/Task-Manager__ToDo-App/"
+		/>
+		<meta property="og:site_name" content="Task Manager Pro" />
+		<meta property="og:image" content="images/logo.jpg" />
+		<meta
+			property="og:image:alt"
+			content="Task Manager Pro - Modern To-Do App Interface"
+		/>
+		<meta property="og:locale" content="en_US" />
+
+		<!-- ============================== Twitter Card Meta Tags ============================== -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta
+			name="twitter:title"
+			content="Task Manager Pro - Modern To-Do App"
+		/>
+		<meta
+			name="twitter:description"
+			content="Professional task management app with modern UI, smooth animations, and local storage. Organize your daily tasks efficiently."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://ahmed-maher77.github.io/Task-Manager__ToDo-App/images/logo.jpg"
+		/>
+		<meta
+			name="twitter:image:alt"
+			content="Task Manager Pro - Modern To-Do App Interface"
+		/>
+		<meta name="twitter:creator" content="@AhmedMa77068093" />
+		<meta name="twitter:site" content="@AhmedMa77068093" />
+
+		<!-- ============================== Additional SEO Meta Tags ============================== -->
+		<meta
+			name="msapplication-TileImage"
+			content="https://ahmed-maher77.github.io/Task-Manager__ToDo-App/images/logo.jpg"
+		/>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<meta name="apple-mobile-web-app-title" content="Task Manager Pro" />
+		<meta name="application-name" content="Task Manager Pro" />
+		<meta name="mobile-web-app-capable" content="yes" />
+
+		<!-- ============================== Structured Data (JSON-LD) ============================== -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "WebApplication",
+				"name": "Task Manager Pro",
+				"description": "Professional task management app with modern UI, smooth animations, and local storage. Organize your daily tasks efficiently.",
+				"url": "https://ahmed-maher77.github.io/Task-Manager__ToDo-App/",
+				"applicationCategory": "ProductivityApplication",
+				"operatingSystem": "Web Browser",
+				"offers": {
+					"@type": "Offer",
+					"price": "0",
+					"priceCurrency": "USD"
+				},
+				"author": {
+					"@type": "Person",
+					"name": "Ahmed Maher",
+					"url": "https://ahmedmaher-portfolio.vercel.app/"
+				},
+				"publisher": {
+					"@type": "Person",
+					"name": "Ahmed Maher"
+				},
+				"datePublished": "2024-01-01",
+				"dateModified": "2024-12-19",
+				"inLanguage": "en-US",
+				"isAccessibleForFree": true,
+				"browserRequirements": "Requires JavaScript. Requires HTML5.",
+				"softwareVersion": "1.0.0"
+			}
+		</script>
+
+		<!-- ============================== Favicon and Icons ============================== -->
+		<link rel="icon" type="image/x-icon" href="images/logo.jpg" />
+		<link rel="icon" type="image/png" href="images/logo.jpg" />
+
+		<!-- ============================== Stylesheets ============================== -->
+		<link rel="stylesheet" href="CSS/all.min.css" />
+		<link rel="stylesheet" href="CSS/style.css" />
+
+		<!-- ============================== Canonical URL ============================== -->
+		<link
+			rel="canonical"
+			href="https://ahmed-maher77.github.io/Task-Manager__ToDo-App/"
+		/>
+	</head>
+	<body>
+		<!-- Skip to content link for screen readers -->
+		<a href="#main" class="skip-link">Skip to main content</a>
+
+		<!-- Initial Loader -->
+		<div
+			id="loader"
+			role="status"
+			aria-live="polite"
+			aria-label="Loading application"
+		>
+			<div class="loader-container">
+				<div class="loader-spinner" aria-hidden="true"></div>
+				<div class="loader-text">Loading Tasks...</div>
+			</div>
+		</div>
+
+		<!-- Main Section -->
+		<main id="main" role="main">
+			<h1>Task Manager Pro</h1>
+			<div class="container">
+				<form class="head" role="form" aria-label="Add new task">
+					<label for="taskInput" class="sr-only"
+						>Enter your task</label
+					>
+					<input
+						type="text"
+						id="taskInput"
+						placeholder="Enter your task..."
+						aria-describedby="taskHelp"
+						aria-required="true"
+						autocomplete="off"
+						spellcheck="true"
+					/>
+					<div id="taskHelp" class="sr-only">
+						Type your task description and press Enter or click Add
+						Task
+					</div>
+					<button id="addBtn" type="submit" aria-label="Add new task">
+						<span aria-hidden="true">+</span> Add Task
+					</button>
+				</form>
+				<div
+					class="content"
+					role="region"
+					aria-label="Task management area"
+				>
+					<h2>My Tasks</h2>
+					<div
+						class="current-tasks"
+						role="list"
+						aria-label="Current tasks"
+					>
+						<!-- the current tasks will be added dynamically using JS -->
+					</div>
+					<div
+						class="completed-tasks"
+						role="list"
+						aria-label="Completed tasks"
+					>
+						<!-- the completed tasks will be added dynamically using JS -->
+					</div>
+					<button
+						class="removeAll"
+						type="button"
+						aria-label="Remove all tasks"
+					>
+						<span aria-hidden="true">🗑️</span> Remove All Tasks
+					</button>
+				</div>
+			</div>
+		</main>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="container">
+				<p>
+					Copyright &copy; <span id="copyright-year"></span> Developed
+					By
+					<a
+						href="https://ahmedmaher-portfolio.vercel.app/"
+						title="About Developer"
+						target="_blank"
+						>Ahmed Maher</a
+					>
+				</p>
+				<span>All Rights Reserved</span>
+			</div>
+		</footer>
+
+		<!-- Main JS File -->
+		<script src="main.js"></script>
+	</body>
 </html>
