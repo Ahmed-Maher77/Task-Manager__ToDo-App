@@ -1,4 +1,4 @@
-# **Task Manager**  
+# **Task Manager Pro - To-do App**  
 A modern and intuitive task management web application designed to help you stay organized and productive. With a clean interface, responsive design, and seamless user experience, Task Manager makes it easy to create, edit, and manage your daily tasks efficiently.
 
 ---
@@ -55,7 +55,7 @@ A modern and intuitive task management web application designed to help you stay
 
 ## 👀 Website Preview:
 <a href="https://ahmed-maher77.github.io/Task-Manager__ToDo-App/" title="demo">
-  <img src="uploaded-img-on-github-readme" alt="website preview" width="400">
+  <img src="https://github.com/user-attachments/assets/e34642b1-3fac-4b30-885e-a35c799e6219" alt="website preview - UI Mockup" width="400">
 </a>
 
 ---
