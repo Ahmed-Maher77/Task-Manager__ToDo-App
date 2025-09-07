@@ -64,7 +64,7 @@ A modern and intuitive task management web application designed to help you stay
 ## 👀 Website Preview:
 
 <a href="https://ahmed-maher77.github.io/Task-Manager__ToDo-App/" title="demo">
-  <img src="https://github.com/user-attachments/assets/e34642b1-3fac-4b30-885e-a35c799e6219" alt="website preview - UI Mockup" width="400">
+  <img src="https://github.com/user-attachments/assets/a22aaf78-e98d-4a64-9ea3-18fc6be6de6d" alt="website preview - UI Mockup" width="400">
 </a>
 
 ---
