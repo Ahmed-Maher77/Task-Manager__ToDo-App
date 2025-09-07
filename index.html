@@ -172,6 +172,36 @@
 					</button>
 				</form>
 				<div
+					class="head search-block"
+					role="search"
+					aria-label="Search tasks"
+				>
+					<div class="search-toggle" aria-hidden="false">
+						<button
+							id="searchToggle"
+							type="button"
+							aria-controls="searchPanel"
+							aria-expanded="false"
+							title="Show search"
+							aria-label="Show search"
+						>
+							<i class="fa-solid fa-magnifying-glass"></i>
+						</button>
+					</div>
+					<div id="searchPanel" class="search-panel">
+						<label for="searchInput" class="sr-only"
+							>Search tasks</label
+						>
+						<input
+							type="search"
+							id="searchInput"
+							placeholder="Search tasks..."
+							aria-label="Search tasks"
+							autocomplete="off"
+						/>
+					</div>
+				</div>
+				<div
 					class="content"
 					role="region"
 					aria-label="Task management area"

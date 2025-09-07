@@ -2,6 +2,9 @@
 const addBtn = document.getElementById("addBtn");
 const removeAllBtn = document.querySelector(".removeAll");
 const input = document.getElementById("taskInput");
+const searchInput = document.getElementById("searchInput");
+const searchToggleBtn = document.getElementById("searchToggle");
+const searchPanel = document.getElementById("searchPanel");
 const currentTasks = document.querySelector(".current-tasks");
 const completedTasks = document.querySelector(".completed-tasks");
 const loader = document.getElementById("loader");
@@ -15,18 +18,20 @@ let tasks = JSON.parse(localStorage.getItem("tasks")) || [
 	},
 ];
 let modifiedId; // ID for the task being edited
+let searchQuery = ""; // Current search query
 
 // ============================== Initialization ==============================
 window.addEventListener("load", function () {
 	setTimeout(function () {
 		loader.classList.add("hidden");
+		window.scrollTo(0, 0);
 		setTimeout(function () {
 			loader.style.display = "none";
 		}, 500);
 	}, 1500);
 });
 
-displayTasks(tasks);
+displayTasks(getFilteredTasks());
 
 // ============================== Event Handlers ==============================
 // Add Task (button click)
@@ -42,6 +47,39 @@ input.addEventListener("keydown", function (e) {
 		handleTaskSubmission();
 	}
 });
+
+// Live Search
+if (searchInput) {
+	searchInput.addEventListener("input", function (e) {
+		searchQuery = e.target.value || "";
+		displayTasks(getFilteredTasks());
+	});
+}
+
+// Toggle Search Panel
+if (searchToggleBtn && searchPanel) {
+	searchToggleBtn.addEventListener("click", function () {
+		const isOpen = searchToggleBtn.getAttribute("aria-expanded") === "true";
+		searchToggleBtn.setAttribute("aria-expanded", String(!isOpen));
+		document
+			.querySelector(".search-block")
+			.classList.toggle("is-open", !isOpen);
+		searchToggleBtn.setAttribute(
+			"title",
+			isOpen ? "Show search" : "Hide search"
+		);
+		searchToggleBtn.setAttribute(
+			"aria-label",
+			isOpen ? "Show search" : "Hide search"
+		);
+		searchPanel.classList.toggle("is-open", !isOpen);
+		if (!isOpen) {
+			setTimeout(() => {
+				searchInput?.focus();
+			}, 200);
+		}
+	});
+}
 
 function handleTaskSubmission() {
 	if (input.value.trim().length > 0) {
@@ -65,7 +103,7 @@ function createTask(taskContent) {
 	};
 	tasks.push(task);
 	localStorage.setItem("tasks", JSON.stringify(tasks));
-	displayTasks(tasks);
+	displayTasks(getFilteredTasks());
 }
 
 function editTask() {
@@ -75,13 +113,14 @@ function editTask() {
 		}
 	});
 	localStorage.setItem("tasks", JSON.stringify(tasks));
-	displayTasks(tasks);
+	displayTasks(getFilteredTasks());
 }
 
 // ============================== DOM Rendering ==============================
 function displayTasks(tasksArray) {
 	const contentContainer = document.querySelector(".content");
-	contentContainer.classList.toggle("hide", tasksArray.length === 0);
+	// Hide content only if there are absolutely no tasks at all
+	contentContainer.classList.toggle("hide", tasks.length === 0);
 
 	currentTasks.innerHTML = "";
 	completedTasks.innerHTML = "";
@@ -99,6 +138,26 @@ function displayTasks(tasksArray) {
 			currentTasks.appendChild(taskDiv);
 		}
 	});
+
+	// No results state when searching
+	if (
+		tasksArray.length === 0 &&
+		tasks.length > 0 &&
+		searchQuery.trim().length > 0
+	) {
+		const noResults = document.createElement("p");
+		noResults.textContent = "No tasks match your search.";
+		noResults.setAttribute("role", "status");
+		noResults.className = "sr-only"; // announce politely
+		currentTasks.appendChild(noResults);
+
+		const noResultsVisible = document.createElement("div");
+		noResultsVisible.textContent = "No tasks match your search.";
+		noResultsVisible.style.textAlign = "center";
+		noResultsVisible.style.color = "#666";
+		noResultsVisible.style.padding = "10px";
+		currentTasks.appendChild(noResultsVisible);
+	}
 
 	removeAllBtn.innerHTML = `Remove All Tasks [${tasks.length}] <i class="fa-solid fa-trash"></i>`;
 }
@@ -198,7 +257,7 @@ document.onclick = function (e) {
 			}
 		});
 		localStorage.setItem("tasks", JSON.stringify(tasks));
-		displayTasks(tasks);
+		displayTasks(getFilteredTasks());
 
 		// Announce status change to screen readers
 		const task = tasks.find((t) => t.id == taskId);
@@ -223,7 +282,7 @@ document.onclick = function (e) {
 			.querySelector("p").innerText;
 		tasks = tasks.filter((task) => task.id != taskId);
 		localStorage.setItem("tasks", JSON.stringify(tasks));
-		displayTasks(tasks);
+		displayTasks(getFilteredTasks());
 		announceToScreenReader(`Task "${taskContent}" deleted`);
 	}
 };
@@ -245,7 +304,7 @@ function announceToScreenReader(message) {
 removeAllBtn.addEventListener("click", () => {
 	tasks = [];
 	localStorage.removeItem("tasks");
-	displayTasks(tasks);
+	displayTasks(getFilteredTasks());
 });
 
 // ============================== Utility Functions ==============================
@@ -268,3 +327,10 @@ function copyrightsYear() {
 document.addEventListener("DOMContentLoaded", () => {
 	copyrightsYear();
 });
+
+// ============================== Filtering ==============================
+function getFilteredTasks() {
+	const query = searchQuery.trim().toLowerCase();
+	if (!query) return tasks;
+	return tasks.filter((task) => task.content.toLowerCase().includes(query));
+}
