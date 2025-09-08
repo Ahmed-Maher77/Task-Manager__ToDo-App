@@ -1,6 +1,6 @@
 # **Task Manager Pro - To-do App**
 
-A modern and intuitive task management web application designed to help you stay organized and productive. With a clean interface, responsive design, and seamless user experience, Task Manager makes it easy to create, edit, and manage your daily tasks efficiently.
+A modern and intuitive task management web application designed to help you stay organized and productive. With a clean interface, responsive design, and seamless user experience, Task Manager makes it easy to create, search, edit, and manage your daily tasks efficiently while also tracking progress to keep you on top of your goals.
 
 ---
 
@@ -36,12 +36,13 @@ A modern and intuitive task management web application designed to help you stay
 
 ---
 
-## 💻 **Technologies Used**
+## 💻 Technologies Used  
 
--   **HTML5** → Provides semantic and accessible structure.
--   **CSS3** → Creates a responsive, modern, and user-friendly design.
--   **JavaScript (ES6+)** → Handles dynamic interactions and core task management logic.
--   **Local Storage API** → Ensures task persistence across sessions without a database.
+- **HTML/HTML5** → Defines the semantic structure of the application, ensuring accessibility and proper content organization.  
+- **CSS/CSS3** → Styles the interface with responsive layouts and modern, user-friendly design.  
+- **JavaScript (ES6+)** → Powers dynamic interactions, event handling, and core task management logic.  
+- **Local Storage API** → Provides client-side data persistence across sessions without requiring a database.  
+- **Font Awesome** → Supplies scalable icons to enhance UI clarity and visual appeal.  
 
 ---
 
